@@ -1,0 +1,6 @@
+framework module mfPicker {
+  umbrella header "mfPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

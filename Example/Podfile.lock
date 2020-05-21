@@ -1,0 +1,16 @@
+PODS:
+  - mfPicker (0.1.0)
+
+DEPENDENCIES:
+  - mfPicker (from `../`)
+
+EXTERNAL SOURCES:
+  mfPicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  mfPicker: 8896dc0c6350016ec682c8c5feb318b262d49bf9
+
+PODFILE CHECKSUM: 4be7c9dede719a36bc46b873a482a48e507981d0
+
+COCOAPODS: 1.8.4
