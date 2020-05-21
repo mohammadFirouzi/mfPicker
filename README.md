@@ -5,6 +5,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/mfPicker.svg?style=flat)](https://cocoapods.org/pods/mfPicker)
 
 
+![ScreenShot](https://s7.gifyu.com/images/mfPickerSSH.png)
+
+
 ## Installation
 
 mfPicker is available through [CocoaPods](https://cocoapods.org). To install
