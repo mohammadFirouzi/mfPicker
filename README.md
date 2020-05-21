@@ -18,7 +18,7 @@ Or just import mfPicker.swift to your project
 
 ## Usage
 
-```ruby
+```swift
 import UIKit
 import mfPicker
 
