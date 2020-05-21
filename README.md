@@ -5,8 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/mfPicker.svg?style=flat)](https://cocoapods.org/pods/mfPicker)
 
 
-![ScreenShot](https://s7.gifyu.com/images/mfPickerSSH.png)
-
+<img src="https://s7.gifyu.com/images/mfPickerSSH.png" style=" width:200px ; height:200px " />
 
 ## Installation
 
