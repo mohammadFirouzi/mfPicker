@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'mfPicker'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A light UIPicker'
 
 # This description is used to generate tags and improve search results.

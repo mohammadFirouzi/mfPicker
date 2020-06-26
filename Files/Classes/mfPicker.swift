@@ -47,21 +47,21 @@ public class mfPicker: UIView {
         cnsMainToBottom = self.bottomAnchor.constraint(equalTo: vwMain.bottomAnchor)
         
         self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        vwHeader.backgroundColor = .lightGray
+        vwHeader.backgroundColor = .gray
         vwBody.backgroundColor = .white
         
         lblTitle.text = "select item"
-        lblTitle.font = UIFont.systemFont(ofSize: 17)
-        lblTitle.textColor = .black
+        lblTitle.font = UIFont.systemFont(ofSize: 22)
+        lblTitle.textColor = .white
         lblTitle.textAlignment = .center
         
         btnSubmit.setTitle("submit", for: .normal)
-        btnSubmit.setTitleColor(.black, for: .normal)
-        btnSubmit.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        btnSubmit.setTitleColor(.white, for: .normal)
+        btnSubmit.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         
         btnCancel.setTitle("cancel", for: .normal)
-        btnCancel.setTitleColor(.black, for: .normal)
-        btnCancel.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        btnCancel.setTitleColor(.white, for: .normal)
+        btnCancel.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         
         vwHeader.addSubview(lblTitle)
         vwHeader.addSubview(btnSubmit)
@@ -95,10 +95,10 @@ public class mfPicker: UIView {
                                      picker.trailingAnchor.constraint(equalTo: vwBody.trailingAnchor, constant: 0),
                                      picker.bottomAnchor.constraint(equalTo: vwBody.bottomAnchor, constant: 0)])
         
-        NSLayoutConstraint.activate([btnSubmit.leadingAnchor.constraint(equalTo: vwHeader.leadingAnchor, constant: 16),
-                                     btnSubmit.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
-                                     btnCancel.trailingAnchor.constraint(equalTo: vwHeader.trailingAnchor, constant: -16),
+        NSLayoutConstraint.activate([btnCancel.leadingAnchor.constraint(equalTo: vwHeader.leadingAnchor, constant: 16),
                                      btnCancel.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
+                                     btnSubmit.trailingAnchor.constraint(equalTo: vwHeader.trailingAnchor, constant: -16),
+                                     btnSubmit.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
                                      lblTitle.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
                                      lblTitle.centerXAnchor.constraint(equalTo: vwHeader.centerXAnchor, constant: 0)])
         
