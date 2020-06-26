@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="https://s7.gifyu.com/images/mfPickerSSH.png" width="40%" />
+  <img src="https://s7.gifyu.com/images/mfPicker.gif" width="50%" />
 </p>
 
 
