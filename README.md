@@ -12,7 +12,7 @@
 
 ## Description
 
-mfNotification is an in-app notification view that allows you to easily display notification anywhere on your app.
+mfPicker is a light UIPicker written in swift, it is easy to use and customizable.
 
 ## Installation
 
