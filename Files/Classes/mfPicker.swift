@@ -11,36 +11,38 @@ import UIKit
 
 public class mfPicker: UIView {
     
-    private weak var delegate   : mfPickerDelegate? = nil
+    public weak var delegate        : mfPickerDelegate? = nil
+    
     
     // MARK: - constants
-    private var parentView      = UIView()
-    private var vwHeaderHeight  = CGFloat(50)
-    private var vwMainHeight    = CGFloat(300)
-    private var cnsMainToBottom = NSLayoutConstraint()
+    private var parentView          = UIView()
+    private var vwHeaderHeight      = CGFloat(50)
+    private var vwMainHeight        = CGFloat(300)
+    private var cnsMainToBottom     = NSLayoutConstraint()
+    
     
     // MARK: - views
-    public var vwMain          = UIView()
-    public var vwHeader        = UIView()
-    public var lblTitle        = UILabel()
-    public var btnSubmit       = UIButton()
-    public var btnCancel       = UIButton()
-    public var vwBody          = UIView()
-    public var picker        = UIPickerView()
+    public var vwMain               = UIView()
+    public var vwHeader             = UIView()
+    public var lblTitle             = UILabel()
+    public var btnSubmit            = UIButton()
+    public var btnCancel            = UIButton()
+    public var vwBody               = UIView()
+    public var picker               = UIPickerView()
+    
     
     // MARK: - initializers
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    public init(delegate: mfPickerDelegate) {
+    public init() {
         super.init(frame: .zero)
-        self.delegate = delegate
         prepareViews()
         prepareFunctionality()
     }
     
-    // MARK: - settingUp views
     
+    // MARK: - settingUp views
     private func prepareViews(){
         cnsMainToBottom = self.bottomAnchor.constraint(equalTo: vwMain.bottomAnchor)
         
@@ -82,24 +84,24 @@ public class mfPicker: UIView {
                                      vwHeader.leadingAnchor.constraint(equalTo: vwMain.leadingAnchor, constant: 0),
                                      vwHeader.trailingAnchor.constraint(equalTo: vwMain.trailingAnchor, constant: 0),
                                      vwHeader.heightAnchor.constraint(equalToConstant: vwHeaderHeight)])
-
+        
         NSLayoutConstraint.activate([vwBody.topAnchor.constraint(equalTo: vwHeader.bottomAnchor, constant: 0),
                                      vwBody.leadingAnchor.constraint(equalTo: vwMain.leadingAnchor, constant: 0),
                                      vwBody.trailingAnchor.constraint(equalTo: vwMain.trailingAnchor, constant: 0),
                                      vwBody.bottomAnchor.constraint(equalTo: vwMain.bottomAnchor, constant: 0)])
-
+        
         NSLayoutConstraint.activate([picker.topAnchor.constraint(equalTo: vwBody.topAnchor, constant: 0),
                                      picker.leadingAnchor.constraint(equalTo: vwBody.leadingAnchor, constant: 0),
                                      picker.trailingAnchor.constraint(equalTo: vwBody.trailingAnchor, constant: 0),
                                      picker.bottomAnchor.constraint(equalTo: vwBody.bottomAnchor, constant: 0)])
-
+        
         NSLayoutConstraint.activate([btnSubmit.leadingAnchor.constraint(equalTo: vwHeader.leadingAnchor, constant: 16),
                                      btnSubmit.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
                                      btnCancel.trailingAnchor.constraint(equalTo: vwHeader.trailingAnchor, constant: -16),
                                      btnCancel.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
                                      lblTitle.centerYAnchor.constraint(equalTo: vwHeader.centerYAnchor, constant: 0),
                                      lblTitle.centerXAnchor.constraint(equalTo: vwHeader.centerXAnchor, constant: 0)])
-
+        
         cnsMainToBottom.constant = -1 * vwMainHeight
         NSLayoutConstraint.activate([vwMain.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
                                      vwMain.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
@@ -107,6 +109,7 @@ public class mfPicker: UIView {
                                      cnsMainToBottom])
         
     }
+    
     
     // MARK: - settingUp functionality
     private func prepareFunctionality(){
@@ -126,15 +129,17 @@ public class mfPicker: UIView {
     }
     
     @objc private func cancelPressed(){
+        delegate?.mfPickerCancelButtonDidPressed()
         dismiss()
     }
     
     @objc private func submitPressed(){
-        delegate?.mfPickerSubmitPressed()
+        delegate?.mfPickerSubmitButtonDidPressed()
         dismiss()
     }
     
-     // MARK: - present on superView
+    
+    // MARK: - present on superView
     public func present(on view: UIView){
         parentView = view
         parentView.addSubview(self)
@@ -153,32 +158,46 @@ public class mfPicker: UIView {
         }
     }
     
+    
     // MARK: - dismiss
     public func dismiss(){
+        delegate?.mfPickerWillDismiss()
         UIView.animate(withDuration: 0.37, animations: {
             self.alpha = 0.0
             self.cnsMainToBottom.constant = -1 * self.vwMainHeight
             self.parentView.layoutIfNeeded()
         }) { (success) in
             self.removeFromSuperview()
+            self.delegate?.mfPickerDidDismiss()
         }
     }
-    
 }
+
 
 // MARK: - delegates
 extension mfPicker : UIGestureRecognizerDelegate {
     //prevent dismissing when tapped on vwMain
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-         if touch.view?.isDescendant(of: vwMain) == true {
+        if touch.view?.isDescendant(of: vwMain) == true {
             return false
-         }
-         return true
+        }
+        return true
     }
 }
+
 
 // MARK: - protocol
 
 public protocol mfPickerDelegate: class {
-    func mfPickerSubmitPressed()
+    func mfPickerSubmitButtonDidPressed()
+    func mfPickerCancelButtonDidPressed()
+    func mfPickerWillDismiss()
+    func mfPickerDidDismiss()
+}
+
+public extension mfPickerDelegate {
+    func mfPickerSubmitButtonDidPressed(){}
+    func mfPickerCancelButtonDidPressed(){}
+    func mfPickerWillDismiss(){}
+    func mfPickerDidDismiss(){}
 }
