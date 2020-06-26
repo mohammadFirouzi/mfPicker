@@ -9,6 +9,11 @@
   <img src="https://s7.gifyu.com/images/mfPickerLTB480.gif" width="30%" />
 </p>
 
+
+## Description
+
+mfNotification is an in-app notification view that allows you to easily display notification anywhere on your app.
+
 ## Installation
 
 mfPicker is available through [CocoaPods](https://cocoapods.org). To install
