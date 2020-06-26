@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="https://s7.gifyu.com/images/mfPicker.png" width="50%" />
+  <img src="https://s7.gifyu.com/images/mfPicker.png" width="40%" />
 </p>
 
 
