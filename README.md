@@ -9,6 +9,7 @@
   <img src="https://s7.gifyu.com/images/mfPicker480.gif" width="30%" />
 </p>
 
+[![mfPicker480.md.gif](https://s7.gifyu.com/images/mfPicker480.md.gif)](https://gifyu.com/image/uOXQ)
 
 ## Installation
 
