@@ -29,13 +29,20 @@ import mfPicker
 
 class ViewController: UIViewController {
     
-    lazy var myMfPicker = mfPicker(delegate: self)
-    let objectsArray = ["a","b","c"]
+    var myMfPicker = mfPicker()
+    let objectsArray = ["Berlin","Paris","Amesterdam","Rome","London","Istanbul","Moscow","Seoul","Tokyo"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set UIPickerView delegate and dataSource
         myMfPicker.picker.delegate = self
         myMfPicker.picker.dataSource = self
+        //Set myMfPicker delegate if you need
+        myMfPicker.delegate = self
+        //Customizations can also be done in this way
+        myMfPicker.lblTitle.text = "select city"
+
     }
 
     @IBAction func btnPressed(_ sender: Any) {
@@ -59,7 +66,20 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 }
 
 extension ViewController: mfPickerDelegate {
-    func mfPickerSubmitPressed() {
+    func mfPickerSubmitButtonDidPressed(selectedRow: Int) {
+        print("Selected row : \(selectedRow)")
+    }
+    
+    func mfPickerCancelButtonDidPressed() {
+
+    }
+    
+    func mfPickerWillDismiss() {
+        
+    }
+    
+    func mfPickerDidDismiss() {
+        
     }
 }
 ```
