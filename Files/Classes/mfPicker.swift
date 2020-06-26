@@ -134,7 +134,7 @@ public class mfPicker: UIView {
     }
     
     @objc private func submitPressed(){
-        delegate?.mfPickerSubmitButtonDidPressed()
+        delegate?.mfPickerSubmitButtonDidPressed(selectedRow: picker.selectedRow(inComponent: 0))
         dismiss()
     }
     
@@ -189,14 +189,14 @@ extension mfPicker : UIGestureRecognizerDelegate {
 // MARK: - protocol
 
 public protocol mfPickerDelegate: class {
-    func mfPickerSubmitButtonDidPressed()
+    func mfPickerSubmitButtonDidPressed(selectedRow: Int)
     func mfPickerCancelButtonDidPressed()
     func mfPickerWillDismiss()
     func mfPickerDidDismiss()
 }
 
 public extension mfPickerDelegate {
-    func mfPickerSubmitButtonDidPressed(){}
+    func mfPickerSubmitButtonDidPressed(selectedRow: Int){}
     func mfPickerCancelButtonDidPressed(){}
     func mfPickerWillDismiss(){}
     func mfPickerDidDismiss(){}

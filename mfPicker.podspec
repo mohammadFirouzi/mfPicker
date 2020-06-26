@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'mfPicker'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'A light UIPicker'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  mfPicker is a light UIPicker written in swift
+  mfPicker is a light UIPicker written in swift, it is easy to use and customizable
                        DESC
 
   s.homepage         = 'https://github.com/mohammadFirouzi/mfPicker'
