@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="https://s7.gifyu.com/images/mfPicker480.gif" width="30%" />
+  <img src="https://s7.gifyu.com/images/mfPickerLTB480.gif" width="30%" />
 </p>
 
 ## Installation
