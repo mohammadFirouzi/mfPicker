@@ -9,8 +9,6 @@
   <img src="https://s7.gifyu.com/images/mfPicker480.gif" width="30%" />
 </p>
 
-![mfPicker480.gif](https://s7.gifyu.com/images/mfPicker480.gif)
-
 ## Installation
 
 mfPicker is available through [CocoaPods](https://cocoapods.org). To install
